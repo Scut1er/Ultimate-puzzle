@@ -34,13 +34,17 @@ def start_screen_render():
         anim_count += 1
 
 
-def resolution_error_render():
+def resolution_error_render(flag):
     screen = pygame.display.set_mode((900, 600))
     screen.fill(black)
     screen.blit(start_text, start_rect)
-    screen.blit(file_error, file_error_rect)
-    screen.blit(file_error1, file_error1_rect)
-    screen.blit(file_error2, file_error2_rect)
+    if flag == 'max':
+        screen.blit(file_error, file_error_rect)
+        screen.blit(file_error1, file_error1_rect)
+        screen.blit(file_error2, file_error2_rect)
+    elif flag == 'min':
+        screen.blit(min_size, min_size_rect)
+        screen.blit(file_error2, file_error2_rect)
 
 
 def choose_difficulty_render():

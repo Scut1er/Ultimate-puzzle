@@ -32,7 +32,7 @@ selected_img = None
 is_game_over = False
 show_start_screen = True
 choose_difficulty = False
-resolution_error = False
+resolution_error = ''
 saving_error = False
 playing = False
 

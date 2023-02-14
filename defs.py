@@ -2,6 +2,7 @@ import pygame, random
 from tkinter import *
 from tkinter import filedialog
 from PIL import Image
+from vars import dp_w, dp_h
 
 
 def create_puzzles(num, width, height):
@@ -50,7 +51,7 @@ def change_volume(flag, volume):
             return volume
 
 
-'''def select_file(dp_w, dp_h):
+def select_file():
     tk = Tk()
     tk.withdraw()
     file_name = filedialog.askopenfilename(title='IMAGES',
@@ -67,4 +68,6 @@ def change_volume(flag, volume):
             bg_rect.topleft = (0, 0)
             return [im, width, height, pixels, bg, bg_rect]
         else:
-            return False'''
+            return []
+    else:
+        return []

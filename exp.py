@@ -3,9 +3,8 @@ from tkinter import *
 from tkinter import filedialog
 from PIL import Image
 from vars import *
-from animation import *
 from screens import *
-from defs import converting, change_volume, create_puzzles
+from defs import change_volume, create_puzzles
 from save import saver
 
 running = True
@@ -48,7 +47,7 @@ while running:
 
         if not saving_error:
             screen.blit(f3_text, f3_rect)
-        else:
+        else:  # демонстрация ошибки сохранения
             screen.blit(saving_error_text, saving_error_rect)
 
         keys = pygame.key.get_pressed()
@@ -64,17 +63,20 @@ while running:
                 im = Image.open(file_name)
                 (width, height) = im.size
                 pixels = im.load()
-                # проверка на ошибку разрешения
-                if width <= dp_w and height <= dp_h:
+                if width > dp_w or height > dp_h:  # проверка на ошибку максимального разрешения
+                    show_start_screen = False
+                    resolution_error = 'max'
+                elif width < 300 or height < 300:  # проверка на ошибку минимального разрешения
+                    show_start_screen = False
+                    resolution_error = 'min'
+                else:
                     bg = pygame.image.load(file_name)
                     bg_rect = bg.get_rect()
                     bg_rect.topleft = (0, 0)
                     choose_difficulty = True
                     show_start_screen = False
-                else:
-                    show_start_screen = False
-                    resolution_error = True
-        if keys[pygame.K_F3]:
+                    tk.destroy()
+        if keys[pygame.K_d]:
             if saver.get_info():
                 saving_error = False
                 cells, bg_rect, cell_width, cell_height, duration = saver.get_info()
@@ -87,12 +89,15 @@ while running:
             else:
                 saving_error = True
 
-    if resolution_error:  # экран ошибки разрешения
+    if resolution_error != '':  # экран ошибки разрешения
         keys = pygame.key.get_pressed()
-        resolution_error_render()  # отрисовка экрана ошибки разрешения
+        if resolution_error == 'max':
+            resolution_error_render('max')  # отрисовка экрана ошибки максимального разрешения
+        elif resolution_error == 'min':
+            resolution_error_render('min')  # отрисовка экрана ошибки минимального разрешения
         if keys[pygame.K_SPACE]:
             show_start_screen = True
-            resolution_error = False
+            resolution_error = ''
 
     if choose_difficulty:  # экран выбор сложности
         choose_difficulty_render()  # отрисовка экрана выбора сложности

@@ -30,6 +30,10 @@ file_error2 = font_sm_content.render("Нажмите ПРОБЕЛ чтобы п�
 file_error2_rect = file_error2.get_rect()
 file_error2_rect.center = (width // 2, height // 2 + 160)
 
+min_size = font_sm_content.render("Изображение меньше формата 300x300 ", True, white)
+min_size_rect = min_size.get_rect()
+min_size_rect.center = (width // 2, height // 2 + 60)
+
 # экран выбора сложности
 title_text = font_title.render('Ultimate Puzzles', True, purple)
 title_rect = title_text.get_rect()
