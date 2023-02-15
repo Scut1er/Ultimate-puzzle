@@ -1,12 +1,8 @@
 import pygame, random
-from tkinter import *
-from tkinter import filedialog
 from PIL import Image
-from vars import dp_w, dp_h
 
 
 def create_puzzles(num, width, height):
-    global cells, cell_width, cell_height
     rows = num
     cols = num
     num_cells = rows * cols
@@ -49,25 +45,3 @@ def change_volume(flag, volume):
             return volume
         elif volume == 0:
             return volume
-
-
-def select_file():
-    tk = Tk()
-    tk.withdraw()
-    file_name = filedialog.askopenfilename(title='IMAGES',
-                                           filetypes=[('JPEG images', '.jpg'), ('PNG images', '.png'),
-                                                      ('BMP images', '.bmp')])
-    if file_name != '':
-        im = Image.open(file_name)
-        (width, height) = im.size
-        pixels = im.load()
-        # проверка на ошибку разрешения
-        if width <= dp_w and height <= dp_h:
-            bg = pygame.image.load(file_name)
-            bg_rect = bg.get_rect()
-            bg_rect.topleft = (0, 0)
-            return [im, width, height, pixels, bg, bg_rect]
-        else:
-            return []
-    else:
-        return []

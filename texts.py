@@ -35,7 +35,7 @@ min_size_rect = min_size.get_rect()
 min_size_rect.center = (width // 2, height // 2 + 60)
 
 # экран выбора сложности
-title_text = font_title.render('Ultimate Puzzles', True, purple)
+title_text = font_title.render('Ultimate Puzzle', True, purple)
 title_rect = title_text.get_rect()
 title_rect.center = (width // 2, height // 2 - 160)
 
@@ -43,19 +43,19 @@ choose_text = font_content.render('Выберите сложность', True, p
 choose_rect = choose_text.get_rect()
 choose_rect.center = (width // 2, height // 2 - 20)
 
-easy_text = font_content.render("Press '1' - Easy (3x3)", True, white)
+easy_text = font_content.render("Нажмите '1' - Easy (3x3)", True, white)
 easy_rect = easy_text.get_rect()
 easy_rect.center = (width // 2, height // 2 + 60)
 
-medium_text = font_content.render("Press '2' - Medium (5x5)", True, white)
+medium_text = font_content.render("Нажмите '2' - Medium (5x5)", True, white)
 medium_rect = medium_text.get_rect()
 medium_rect.center = (width // 2, height // 2 + 110)
 
-hard_text = font_content.render("Press '3' - Hard (10x10)", True, white)
+hard_text = font_content.render("Нажмите '3' - Hard (10x10)", True, white)
 hard_rect = hard_text.get_rect()
 hard_rect.center = (width // 2, height // 2 + 160)
 
-f3_text = font_help_content.render("*F3 для загрузки последнего сохранения", True, white)
+f3_text = font_help_content.render("*D для загрузки последнего сохранения", True, white)
 f3_rect = f3_text.get_rect()
 f3_rect.center = (width // 2, height - 100)
 

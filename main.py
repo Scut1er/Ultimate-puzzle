@@ -119,6 +119,9 @@ while running:
             cells, cell_width, cell_height = create_puzzles(10, width, height)
             choose_difficulty = False
             playing = True
+        elif keys[pygame.K_ESCAPE]:
+            show_start_screen = True
+            choose_difficulty = False
 
     if playing:  # экран игрового процесса
         keys = pygame.key.get_pressed()
