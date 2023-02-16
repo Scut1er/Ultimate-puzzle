@@ -2,6 +2,7 @@ import pygame, random
 from PIL import Image
 
 
+# функция создания пазлов
 def create_puzzles(num, width, height):
     rows = num
     cols = num
@@ -23,6 +24,7 @@ def create_puzzles(num, width, height):
     return [cells, cell_width, cell_height]
 
 
+# функция создания фона для финального экрана
 def converting(image):
     im_final = image.convert("L")
     im_final.save('final.jpg')
@@ -30,6 +32,7 @@ def converting(image):
     return bg_final
 
 
+# функция изменения громкости
 def change_volume(flag, volume):
     if flag:
         if 0 <= volume < 10:

@@ -3,6 +3,7 @@ from defs import converting
 from texts import *
 
 
+# Спрайты анимации
 class Animation(pygame.sprite.Sprite):
     def __init__(self, name):
         super().__init__()
@@ -20,6 +21,7 @@ screen = pygame.display.set_mode((900, 600))
 anim_count = 0
 
 
+# рендер стартового меню
 def start_screen_render():
     global anim_count
     pygame.mixer.music.stop()
@@ -34,6 +36,7 @@ def start_screen_render():
         anim_count += 1
 
 
+# рендер экрана ошибки разрешения
 def resolution_error_render(flag):
     screen = pygame.display.set_mode((900, 600))
     screen.fill(black)
@@ -47,6 +50,7 @@ def resolution_error_render(flag):
         screen.blit(file_error2, file_error2_rect)
 
 
+# рендер экрана выбора сложности
 def choose_difficulty_render():
     screen.fill(black)
     screen.blit(title_text, title_rect)
@@ -56,6 +60,7 @@ def choose_difficulty_render():
     screen.blit(hard_text, hard_rect)
 
 
+# рендер таймера
 def timer_render(duration, start_ticks, width, flag):
     global timer
     if not flag:
@@ -77,6 +82,7 @@ def timer_render(duration, start_ticks, width, flag):
         return timer
 
 
+# рендер пазлов
 def puzzles_render(cells, bg, cell_width, cell_height):
     for i, val in enumerate(cells):
         pos = cells[i]['pos']
@@ -85,6 +91,7 @@ def puzzles_render(cells, bg, cell_width, cell_height):
         pygame.draw.rect(screen, cells[i]['border'], cells[i]['rect'], 1)
 
 
+# рендер финального экрана
 def game_over_render(width, height, duration, start_ticks, im, bg_rect):
     if width >= height:
         font_title1 = pygame.font.Font('Arkhip.ttf', height // 12)

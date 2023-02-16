@@ -5,6 +5,7 @@ class Save:
     def __init__(self):
         self.file = shelve.open('save')
 
+    # функция сохранения
     def saving(self, cells, im, bg_rect, cell_width, cell_height, duration, start_ticks):
         self.file['data'] = cells
         im.save('save_img.jpg')
@@ -13,6 +14,7 @@ class Save:
         self.file['h'] = cell_height
         self.file['time'] = duration + pygame.time.get_ticks() - start_ticks
 
+    # функция загрузки
     def get_info(self):
         sv_data = self.file.get('data', 'empty')
         sv_rect = self.file.get('rect', 'empty')
@@ -28,4 +30,5 @@ class Save:
         self.file.close()
 
 
+# объект класса для сохранения
 saver = Save()

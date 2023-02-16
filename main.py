@@ -143,6 +143,7 @@ while running:
             playing = False
 
     if is_game_over:  # экран окончания игры
+
         start_playing = True
         duration = 0
         game_over_render(width, height, duration, start_ticks, im, bg_rect)  # отрисовка экрана окончания игры
