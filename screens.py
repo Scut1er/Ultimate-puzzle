@@ -58,6 +58,7 @@ def choose_difficulty_render():
     screen.blit(easy_text, easy_rect)
     screen.blit(medium_text, medium_rect)
     screen.blit(hard_text, hard_rect)
+    screen.blit(hardkor_text, hardkor_rect)
 
 
 # рендер таймера

@@ -119,6 +119,13 @@ while running:
             cells, cell_width, cell_height = create_puzzles(10, width, height)
             choose_difficulty = False
             playing = True
+
+        elif keys[pygame.K_4]:
+            screen = pygame.display.set_mode((width, height))
+            cells, cell_width, cell_height = create_puzzles(20, width, height)
+            choose_difficulty = False
+            playing = True
+
         elif keys[pygame.K_ESCAPE]:
             show_start_screen = True
             choose_difficulty = False
@@ -143,7 +150,6 @@ while running:
             playing = False
 
     if is_game_over:  # экран окончания игры
-
         start_playing = True
         duration = 0
         game_over_render(width, height, duration, start_ticks, im, bg_rect)  # отрисовка экрана окончания игры
