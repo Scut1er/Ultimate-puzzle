@@ -120,12 +120,6 @@ while running:
             choose_difficulty = False
             playing = True
 
-        elif keys[pygame.K_4]:
-            screen = pygame.display.set_mode((width, height))
-            cells, cell_width, cell_height = create_puzzles(20, width, height)
-            choose_difficulty = False
-            playing = True
-
         elif keys[pygame.K_ESCAPE]:
             show_start_screen = True
             choose_difficulty = False
@@ -158,7 +152,6 @@ while running:
         if keys[pygame.K_SPACE]:
             is_game_over = False
             show_start_screen = True
-
     pygame.display.update()
     clock.tick(FPS)
 

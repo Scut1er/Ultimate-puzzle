@@ -60,11 +60,6 @@ hard_text = font_content.render("Нажмите '3' - Hard (10x10)", True, white
 hard_rect = hard_text.get_rect()
 hard_rect.center = (width // 2, height // 2 + 160)
 
-# выбор хардкор режима
-hardkor_text = font_sm_content.render("Не нажимайте '4'", True, red)
-hardkor_rect = hardkor_text.get_rect()
-hardkor_rect.center = (width // 2, height // 2 + 240)
-
 # подсказка для загрузки сохранения
 f3_text = font_help_content.render("*D для загрузки последнего сохранения", True, white)
 f3_rect = f3_text.get_rect()

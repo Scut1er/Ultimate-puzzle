@@ -1,6 +1,11 @@
-from vars import *
+import pygame.image
+
 from defs import converting
 from texts import *
+
+# цвета, шрифты и размеры
+screen = pygame.display.set_mode((900, 600))
+anim_count = 0
 
 
 # Спрайты анимации
@@ -15,10 +20,6 @@ class Animation(pygame.sprite.Sprite):
 sprites = [Animation('images/1.png'), Animation('images/2.png'), Animation('images/3.png'),
            Animation('images/4.png'), Animation('images/5.png'), Animation('images/6.png'),
            Animation('images/7.png'), Animation('images/8.png'), Animation('images/1.png')]
-
-# цвета, шрифты и размеры
-screen = pygame.display.set_mode((900, 600))
-anim_count = 0
 
 
 # рендер стартового меню
@@ -58,7 +59,6 @@ def choose_difficulty_render():
     screen.blit(easy_text, easy_rect)
     screen.blit(medium_text, medium_rect)
     screen.blit(hard_text, hard_rect)
-    screen.blit(hardkor_text, hardkor_rect)
 
 
 # рендер таймера
